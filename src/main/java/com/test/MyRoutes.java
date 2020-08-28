@@ -3,7 +3,6 @@ package com.test;
 import javax.inject.Inject;
 
 import org.apache.camel.Endpoint;
-import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.cdi.CdiRouteBuilder;
 import org.apache.camel.cdi.Uri;
 
@@ -13,7 +12,7 @@ import org.apache.camel.cdi.Uri;
 public class MyRoutes extends CdiRouteBuilder {
 
     @Inject
-    @Uri("sjms:topic:topic:kt.ps.hcm.wfm.accrual.exit?durableSubscriptionId=dmitrys-test")
+    @Uri("sjms:topic:topic:some.topic?durableSubscriptionId=dmitrys-test")
     private Endpoint inputEndpoint;
 
     @Inject
