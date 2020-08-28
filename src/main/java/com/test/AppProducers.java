@@ -5,6 +5,7 @@ import org.apache.activemq.jms.pool.PooledConnectionFactory;
 import org.apache.camel.CamelContext;
 import org.apache.camel.component.sjms.SjmsComponent;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.spi.SupervisingRouteController;
 import org.apache.deltaspike.core.api.config.ConfigProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +41,11 @@ public class AppProducers {
     @ApplicationScoped
     CamelContext customize() {
         context = new DefaultCamelContext();
+        SupervisingRouteController src = context.getRouteController().supervising();
+        src.setBackOffDelay(5000);
+        src.setBackOffMaxAttempts(4);
+        src.setInitialDelay(1000);
+        src.setThreadPoolSize(2);
 
         SjmsComponent jms = (SjmsComponent) context.getComponent("sjms");
         jms.setConnectionFactory(getConnectionFactory());
