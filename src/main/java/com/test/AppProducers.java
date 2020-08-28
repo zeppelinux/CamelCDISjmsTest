@@ -41,11 +41,6 @@ public class AppProducers {
     @ApplicationScoped
     CamelContext customize() {
         context = new DefaultCamelContext();
-        SupervisingRouteController src = context.getRouteController().supervising();
-        src.setBackOffDelay(5000);
-        src.setBackOffMaxAttempts(4);
-        src.setInitialDelay(1000);
-        src.setThreadPoolSize(2);
 
         SjmsComponent jms = (SjmsComponent) context.getComponent("sjms");
         jms.setConnectionFactory(getConnectionFactory());
