@@ -19,6 +19,7 @@
     <log4j2-version>2.13.3</log4j2-version>
     <cdi-api-version>2.0</cdi-api-version>
     <artemis.version>2.14.0</artemis.version>
+    <camel.version>2.25.2</camel.version>
   </properties>
 
   <dependencyManagement>
@@ -27,7 +28,7 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-bom</artifactId>
-        <version>3.4.3</version>
+        <version>${camel.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -98,7 +99,6 @@
       <version>5.16.0</version>
     </dependency>
 
-<!--    Deltaspike-->
     <!-- Deltaspike -->
     <dependency>
       <groupId>org.apache.deltaspike.core</groupId>
@@ -124,6 +124,7 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test</artifactId>
+      <version>${camel.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -150,17 +151,16 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
-
       <!-- allows the routes to be run via 'mvn camel:run' -->
       <plugin>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-maven-plugin</artifactId>
-        <version>3.4.3</version>
+        <version>${camel.version}</version>
         <dependencies>
           <dependency>
             <groupId>org.apache.deltaspike.cdictrl</groupId>
             <artifactId>deltaspike-cdictrl-weld</artifactId>
-            <version>1.9.0</version>
+            <version>1.9.2</version>
           </dependency>
           <dependency>
             <groupId>org.jboss.weld.se</groupId>

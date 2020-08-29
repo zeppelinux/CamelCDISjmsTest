@@ -5,7 +5,6 @@ import org.apache.activemq.jms.pool.PooledConnectionFactory;
 import org.apache.camel.CamelContext;
 import org.apache.camel.component.sjms.SjmsComponent;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.spi.SupervisingRouteController;
 import org.apache.deltaspike.core.api.config.ConfigProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
